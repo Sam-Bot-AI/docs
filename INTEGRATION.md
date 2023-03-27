@@ -23,15 +23,18 @@ You would have to open a new window with our generated URL and pass some query s
 
 Here is an example of a complete URL:
 ```
-https://app.sam-bot.ai/chat-integration/auth?organizationId=[ORGANIZATION_ID]&apiKey=[API_KEY]&userId=[USER_ID]&userEmail=[USER_EMAIL]&userName=[USER_NAME]&userPicture=[USER_PICTURE]&
+[BASE_URL]/chat-integration/auth?organizationId=[ORGANIZATION_ID]&apiKey=[API_KEY]&userId=[USER_ID]&userEmail=[USER_EMAIL]&userName=[USER_NAME]&userPicture=[USER_PICTURE]&
 ```
-With this you're ready to go! :fire:
+
+Sam bot [BASE_URL] for the production environment is `https://app.sam-bot.ai`
+
+:fire: With this you're ready to go! :fire:
 
 # Example of integrations
-This is a JavaScript example as a reference but you should adapt this to your architecture.
+This is a TypeScript example as a reference but you should adapt this to your architecture.
 ## URL Generation
 ```js
-const SAM_BOT_URL = 'https://app.sam-bot.ai';
+const BASE_URL = 'https://app.sam-bot.ai';
 
 interface Params {
   organizationId: string
@@ -49,7 +52,7 @@ const generateURL = ({
   userEmail,
   userName,
   userPicture,
-}: Params): string => `${SAM_BOT_URL}/chat-integration/auth?organizationId=${encodeURIComponent(organizationId)}&apiKey=${encodeURIComponent(apiKey)}&userId=${encodeURIComponent(userId)}&userEmail=${encodeURIComponent(userEmail)}&userName=${encodeURIComponent(userName)}&userPicture=${encodeURIComponent(userPicture)}`;
+}: Params): string => `${BASE_URL}/chat-integration/auth?organizationId=${encodeURIComponent(organizationId)}&apiKey=${encodeURIComponent(apiKey)}&userId=${encodeURIComponent(userId)}&userEmail=${encodeURIComponent(userEmail)}&userName=${encodeURIComponent(userName)}&userPicture=${encodeURIComponent(userPicture)}`;
 ```
 ## Window opening
 ```js
